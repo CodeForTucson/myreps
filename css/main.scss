@@ -1,7 +1,44 @@
 // Styles built on bootstrap
 
+
+// Media Query / Old IE Mixins (http://jakearchibald.github.io/sass-ie/)
+$fix-mqs: false !default;
+$old-ie: false !default;
+@mixin mq-min($width) {
+  @if $fix-mqs {
+    @if $fix-mqs >= $width {
+      @content;
+    }
+  }
+  @else {
+    @media screen and (min-width: $width) {
+      @content;
+    }
+  }
+}
+@mixin mq-max($width) {
+  @if $fix-mqs {
+    @if $fix-mqs < $width {
+      @content;
+    }
+  }
+  @else {
+    @media screen and (max-width: $width) {
+      @content;
+    }
+  }
+}
+@mixin old-ie {
+  @if $old-ie {
+    @content;
+  }
+}
+
+
+
+
 .container-fluid {
-  margin: 2em;
+  margin: 2em 5%;
 }
 
 
@@ -9,9 +46,30 @@
   padding-top: 2em;
 }
 
+.rep-list {
+  padding-left: 2em;
+}
 
-// img {
-//   border-radius: 0.5em;
-// }
+
+.media-left {
+  display: none;
+
+  @include mq-min(400px) {
+    display: table-cell;
+  }
+}
+
+img {
+  display: none !important;
+  max-width: 100px;
+
+  @include mq-min(400px) {
+    display: block !important;
+  }
+
+  @include mq-min(600px) {
+    max-width: 200px;
+  }
+}
 
 

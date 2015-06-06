@@ -1,5 +1,24 @@
 .container-fluid {
-  margin: 2em; }
+  margin: 2em 5%; }
 
 .main {
   padding-top: 2em; }
+
+.rep-list {
+  padding-left: 2em; }
+
+.media-left {
+  display: none; }
+  @media screen and (min-width: 400px) {
+    .media-left {
+      display: table-cell; } }
+
+img {
+  display: none !important;
+  max-width: 100px; }
+  @media screen and (min-width: 400px) {
+    img {
+      display: block !important; } }
+  @media screen and (min-width: 600px) {
+    img {
+      max-width: 200px; } }
