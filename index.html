@@ -24,46 +24,113 @@
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </div>
+
+
+    <!-- Main Well -->
     <div class="row main">
-
-
-
-
-      <!-- Main Well -->
       <div class="col-md-12 main-well">
-        <div class="form-group">
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Address to Find Your Representatives">
-        </div>
 
-        <!-- Main Well Rep Block -->
-        <div class="well">
-          <div class="media">
-            <div class="media-left">
-              <img class="media-object" src="img/mccain.jpg" alt="John McCain">
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">Senator John McCain</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.</p>
-              <ul class="rep-list">
-                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
-                <li><a href="#">Consectetur adipisicing elit</a></li>
-                <li><a href="#">Sed do eiusmod tempor incididunt ut labore et</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <!-- form -->
+        <form id="addressForm" class="form-group">
+          <input type="text" class="form-control" id="addressInput" placeholder="Enter Your Address to Find Your Representatives">
+        </form>
+
+        <!-- Results -->
+        <div class="results"></div>
 
       </div>
-
-
-
-
-
 
     </div>
   </div>
 
-  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+  <!-- Main Well Rep Block
+  <div class="well">
+    <div class="media">
+      <div class="media-left">
+        <img class="media-object" src="img/mccain.jpg" alt="John McCain">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">Senator John McCain</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+        <ul class="rep-list">
+          <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+          <li><a href="#">Consectetur adipisicing elit</a></li>
+          <li><a href="#">Sed do eiusmod tempor incididunt ut labore et</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  -->
+
+
+  <script type="text/html" id="repTemplate">
+    <div class="well">
+      <div class="media">
+
+        <% if (typeof photoUrl !== "undefined") { %>
+          <div class="media-left">
+            <img class="media-object" src="<%= photoUrl %>" alt="<%= name %>">
+          </div>
+        <% } %>
+
+        <div class="media-body">
+          <h4 class="media-heading"><%= name %></h4>
+
+          <ul class="rep-list">
+
+            <% if (typeof party !== "undefined") { %>
+              <li>Party: <strong><%= party %></strong></li>
+            <% } %>
+
+            <% if (typeof phone !== "undefined") { %>
+              <li>Phone: <strong><%= phone %></strong></li>
+            <% } %>
+
+            <% if (typeof address !== "undefined" && typeof address[0] !== "undefined" && typeof address[0].city !== "undefined" && typeof address[0].state !== "undefined") { %>
+              <li>Location: <strong><%= address[0].city %>, <%= address[0].state %></strong></li>
+            <% } %>
+
+
+            <!-- Channels -->
+            <% if (typeof channels !== "undefined") { %>
+              <% _.each(channels, function(channel){ %>
+                <% if (channel.type == 'Twitter') { %>
+                  <li><a target="_blank" href="http://twitter.com/<%= channel.id %>">View on Twitter</a></li>
+                <% } %>
+
+                <% if (channel.type == 'Facebook') { %>
+                  <li><a target="_blank" href="http://facebook.com/<%= channel.id %>">View on Facebook</a></li>
+                <% } %>
+
+                <% if (channel.type == 'YouTube') { %>
+                  <li><a target="_blank" href="http://youtube.com/<%= channel.id %>">View on YouTube</a></li>
+                <% } %>
+              <% }); %>
+            <% } %>
+
+
+            <% if (typeof urls !== "undefined") { %>
+              <li>Other Websites:
+                <ul class="rep-list">
+                  <% _.each(urls, function(url){ %>
+                    <li><a target="_blank" href="<%= url %>"><%= url %></a></li>
+                  <% }); %>
+                </ul>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </script>
+
+
+
+  <!-- Require.js -->
+  <script>REQUIRE_NOCACHE = true;</script>
+  <script data-main="js/main.js" src="js/lib/require.js"></script>
+
 </body>
 </html>

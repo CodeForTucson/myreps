@@ -11,11 +11,5 @@ require.config({
 
 // Main application bootstrapper
 define(function() {
-  var mods = [];
-
-  if (!!document.querySelectorAll('.container').length) {
-    mods.push("components/example");
-  }
-
-  require(mods);
+  require(['components/example']);
 });
