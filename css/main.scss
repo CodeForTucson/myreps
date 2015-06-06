@@ -35,8 +35,6 @@ $old-ie: false !default;
 }
 
 
-
-
 .container-fluid {
   margin: 2em 5%;
 }
@@ -69,5 +67,16 @@ img {
 
   @include mq-min(600px) {
     max-width: 200px;
+  }
+}
+
+
+.footer {
+  opacity: 0.6;
+  font-style: italic;
+  padding-top: 3em;
+
+  p {
+    font-size: 11px;
   }
 }
