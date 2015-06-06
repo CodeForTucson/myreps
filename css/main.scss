@@ -1,14 +1,17 @@
-// Libs
-@import "lib/bourbon/bourbon";
-@import "lib/normalize";
+// Styles built on bootstrap
 
-// Assets
-@import "global/vars";
-@import "global/mixins";
-@import "global/base";
+.container-fluid {
+  margin: 2em;
+}
 
-// Components
-@import "components/example";
 
-// Misc
-@import "global/print";
+.main {
+  padding-top: 2em;
+}
+
+
+// img {
+//   border-radius: 0.5em;
+// }
+
+
