@@ -57,7 +57,7 @@ $old-ie: false !default;
   }
 }
 
-img {
+.results img {
   display: none !important;
   max-width: 100px;
 
@@ -79,4 +79,13 @@ img {
   p {
     font-size: 11px;
   }
+}
+
+.logo {
+  box-shadow: 0 0 0.25em rgba(0,0,0,0.4);
+  border: 1px solid #fff;
+  display: block;
+  border-radius: 1em;
+  margin: 0 auto 1em;
+  width: 400px;
 }

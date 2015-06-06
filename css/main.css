@@ -13,14 +13,14 @@
     .media-left {
       display: table-cell; } }
 
-img {
+.results img {
   display: none !important;
   max-width: 100px; }
   @media screen and (min-width: 400px) {
-    img {
+    .results img {
       display: block !important; } }
   @media screen and (min-width: 600px) {
-    img {
+    .results img {
       max-width: 200px; } }
 
 .footer {
@@ -29,3 +29,11 @@ img {
   padding-top: 3em; }
   .footer p {
     font-size: 11px; }
+
+.logo {
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.4);
+  border: 1px solid #fff;
+  display: block;
+  border-radius: 1em;
+  margin: 0 auto 1em;
+  width: 400px; }
