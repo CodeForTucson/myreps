@@ -82,10 +82,11 @@ $old-ie: false !default;
 }
 
 .logo {
-  box-shadow: 0 0 0.25em rgba(0,0,0,0.4);
   border: 1px solid #fff;
-  display: block;
   border-radius: 1em;
+  box-shadow: 0 0 0.25em rgba(0,0,0,0.4);
+  display: block;
+  max-width: 100%;
   margin: 0 auto 1em;
   width: 400px;
 }
